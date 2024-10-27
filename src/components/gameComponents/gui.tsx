@@ -1,8 +1,17 @@
+import useCozyCatCoinStore from "../../stores/cozyCatCoinStore"
 
 function Gui() {
+
+  const { setCoin, coin } = useCozyCatCoinStore()
+
+  const buttonClicked = () => {
+    setCoin(coin + 1)
+  }
   return(
     <div>
-      <button>
+      <button
+        onClick={buttonClicked}
+      >
         Click me! (GUI)
       </button>
     </div>

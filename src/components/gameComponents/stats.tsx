@@ -1,4 +1,5 @@
 import React from "react"
+import useCozyCatCoinStore from "../../stores/cozyCatCoinStore"
 
 interface itemProps {
   name: string,
@@ -20,9 +21,12 @@ function Stats() {
   const statsContainerStyle: React.CSSProperties = {
     border:"1px solid red"
   }
+
+  const { coin, desc  } = useCozyCatCoinStore()
+
   return(
     <div style={statsContainerStyle}>
-      <StatsItem name={"test"} desc={"test"} amount={0} />
+      <StatsItem name={"CozyCatCoin"} desc={desc} amount={coin} />
     </div>  
   )
 }
