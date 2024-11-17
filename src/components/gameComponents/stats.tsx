@@ -1,20 +1,35 @@
 import React from "react"
 import useCozyCatCoinStore from "../../stores/cozyCatCoinStore"
+import useBuildingsStore from "../../stores/isUnlockedStore"
 
-interface itemProps {
+interface ressourcesItemProps {
   name: string,
   desc: string,
   amount: number,
 }
-function StatsItem({name, desc, amount}: itemProps) {
+interface buidlingItemProps {
+  name: string
+  isVisible: boolean
+}
+
+function RessourcesItem({name, desc, amount}: ressourcesItemProps) {
   return(
     <div>
-      <p>
-        {amount} = {name}
-      </p>
+      <p>{amount} = {name}</p>
       {/* TODO OnnHover = props.description */}
     </div>
   )
+}
+
+function BuildingItem({name, isVisible}: buidlingItemProps) {
+  if (isVisible) {
+    return(
+      <div>
+        <p>{name}</p>
+        {/* TODO OnnHover = props.description */}
+      </div>
+    )
+  }
 }
 
 function Stats() {
@@ -23,10 +38,19 @@ function Stats() {
   }
 
   const { coin, desc  } = useCozyCatCoinStore()
+  const { farmState, farmDesc } = useBuildingsStore()
 
   return(
     <div style={statsContainerStyle}>
-      <StatsItem name={"CozyCatCoin"} desc={desc} amount={coin} />
+      <div>
+        <p>Ressources:</p>
+        <RessourcesItem name={"CozyCatCoin"} desc={desc} amount={coin} />
+      </div>
+      <hr/>
+      <div>
+        <p>Buildings: </p>
+
+      </div>
     </div>  
   )
 }
