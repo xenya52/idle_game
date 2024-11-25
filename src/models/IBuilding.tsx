@@ -3,9 +3,9 @@ import IRessource from "./IRessource";
 interface IBuilding {
   state: boolean;
   desc: string;
+  switchState: () => void; // TODO implement boolean
+  setDesc: (newDesc: string) => void; // TODO implement boolean
   production: () => IRessource;
-  setState: (newState: boolean) => boolean;
-  setDesc: (newDesc: string) => string;
 }
 
 export default IBuilding;
