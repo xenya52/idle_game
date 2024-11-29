@@ -1,5 +1,4 @@
 import React from "react";
-import useCozyCatCoinStore from "../../stores/cozyCatCoinStore";
 import useBuildingsStore from "../../stores/isUnlockedStore";
 
 interface ressourcesItemProps {

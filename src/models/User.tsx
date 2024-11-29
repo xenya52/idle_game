@@ -1,14 +1,13 @@
-import IBuilding from "./IBuilding";
-import IRessource from "./IRessource";
+import IDictionary from "./IDictionary";
 
 class User {
   id: number;
-  ressourceList: IRessource[];
-  buildingsList: IBuilding[];
+  ressourceList: IDictionary<number>;
+  buildingsList: IDictionary<number>;
   constructor() {
     this.id = 0; // Todo implement a "create id" function
-    this.ressourceList = [];
-    this.buildingsList = [];
+    this.ressourceList = {};
+    this.buildingsList = {};
   }
 }
 

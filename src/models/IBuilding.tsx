@@ -1,10 +1,8 @@
-import User from "./User";
-
 interface IBuilding {
   state: boolean;
   desc: string;
-  switchState: () => void; // TODO implement boolean
-  setDesc: (newDesc: string) => void; // TODO implement boolean
+  switchState: () => void;
+  setDesc: (newDesc: string) => void;
 }
 
 export default IBuilding;
