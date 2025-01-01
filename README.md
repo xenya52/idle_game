@@ -1,4 +1,8 @@
 # idle game
+
+## Description
+
+A simple idle game where you can build buildings and get resources. In your anarchsitic cat village.
 ## todo
 ### class diagramm
 

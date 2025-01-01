@@ -1,5 +1,5 @@
-import IBuilding from "./IBuilding.tsx";
-import User from "./User.tsx";
+import IBuilding from "../IBuilding.tsx";
+import User from "../User.tsx";
 
 class Farm implements IBuilding {
   owner: User;

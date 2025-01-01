@@ -1,8 +1,11 @@
+import User from "./User";
+
 interface IBuilding {
-  state: boolean;
+  owner: User;
+  isVisible: boolean;
+  name: string;
   desc: string;
-  switchState: () => void;
-  setDesc: (newDesc: string) => void;
+  switchIsVisble: () => void;
 }
 
 export default IBuilding;

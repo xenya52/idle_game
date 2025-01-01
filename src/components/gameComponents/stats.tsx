@@ -1,32 +1,24 @@
 import React from "react";
-import useBuildingsStore from "../../stores/isUnlockedStore";
+import IRessource from "../../models/IRessource";
+import IBuilding from "../../models/IBuilding";
+import useUserStore from "../../stores/useUserStore";
 
-interface ressourcesItemProps {
-  name: string;
-  desc: string;
-  amount: number;
-}
-interface buidlingItemProps {
-  name: string;
-  isVisible: boolean;
-}
-
-function RessourcesItem({ name, desc, amount }: ressourcesItemProps) {
+function RessourcesItem(ressource: IRessource) {
   return (
     <div>
       <p>
-        {amount} = {name}
+        {ressource.amount} = {ressource.name}
       </p>
       {/* TODO OnnHover = props.description */}
     </div>
   );
 }
 
-function BuildingItem({ name, isVisible }: buidlingItemProps) {
-  if (isVisible) {
+function BuildingItem(building: IBuilding) {
+  if (building.isVisible) {
     return (
       <div>
-        <p>{name}</p>
+        <p>{building.name}</p>
         {/* TODO OnnHover = props.description */}
       </div>
     );
@@ -38,19 +30,18 @@ function Stats() {
     border: "1px solid red",
   };
 
-  const { coin, desc } = useCozyCatCoinStore();
-  const { farmState } = useBuildingsStore();
+  const { getUser } = useUserStore();
 
   return (
     <div style={statsContainerStyle}>
       <div>
         <p>Ressources:</p>
-        <RessourcesItem name={"CozyCatCoin"} desc={desc} amount={coin} />
+        <RessourcesItem ressource={getUser.ressourceList} />
       </div>
       <hr />
       <div>
         <p>Buildings: </p>
-        <BuildingItem name="Farm" isVisible={farmState} />
+        <BuildingItem />
       </div>
     </div>
   );
